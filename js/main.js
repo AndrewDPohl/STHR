@@ -1,5 +1,5 @@
-$('#header').load('_header.html');
-$('.artist-header').load("../_header.html");
+$('#header').load('header.html');
+$('.artist-header').load("../header.html");
 // $('#footer').load('../_footer.html');
 
 $("img").on("click", function() {
