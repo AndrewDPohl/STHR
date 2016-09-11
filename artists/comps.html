@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>STHR | COMPS</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+</head>
+<body>
+  <div class="artist-header"></div>
+  
+  <div class="artist-container">
+
+      <div class="band-bio-box col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="band-release" id="atlas"></div>
+        <p class="band-bio">
+          ATLAS AMPED is the brain child of Jesse Wickman, owner of Atlas Studios in Santa Rosa, CA.  Part recording studio and part rehearsal space, Atlas Studios has served the Sonoma County and greater Northern California music scene for over a decade.  During that time, Atlas has played host to a variety of bands, and we paired up with Jesse to pull together a compilation featuring many of those artists.  From Decent Criminal to Brother's Horse to Snipers!! to The Mud, The Blood, and The Beer, this compilation has something for everyone.  Fun Fact: Jesse Wickman is a fantastic drummer, having been a member of Nuisance, Blindspot, Fifteen, along with currently performing with Shelby Cobra & The Mustangs and doing session work all the time.
+        </p>
+      </div>
+
+      <div class="bandcamp col-lg-4 col-md-4 col-sm-12 col-xs-12">
+       <iframe style="border: 0; width: 350px; height: 775px;" src="https://bandcamp.com/EmbeddedPlayer/album=262767474/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://snipers-sr.bandcamp.com/album/atlas-amped">Atlas Amped by V/A</a></iframe>
+      </div>
+
+      <div class="pics-media">
+        <a href="#" id="pop">
+          <img class="band-pics" id="band-pic" src="https://i.imgur.com/T5wR27Rm.png" alt="SNIPERS!!">
+        </a>
+        <a href="#" id="pop">
+          <img class="band-pics" id="band-pic" src="https://i.imgur.com/KDIFe1jm.jpg" alt="BROTHER'S HORSE">
+        </a>
+        <a href="#" id="pop">
+          <img class="band-pics" id="band-pic" src="https://i.imgur.com/dXHYOSfm.jpg" alt="DECENT CRIMINAL">
+        </a>
+        <a href="#" id="pop">
+          <img class="band-pics" id="band-pic" src="https://i.imgur.com/UCx9dXtm.jpg" alt="THE MUD, THE BLOOD, and THE BEER">
+        </a>
+      </div>
+
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        </div>
+        <div class="modal-body">
+          <img src="" id="imagepreview">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="disqus-container">
+    <h3 class="disqus-title">Tell Us What You Think Of This Release!</h3>
+    <div id="disqus_thread"></div>
+      <script>
+
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+      /*
+      var disqus_config = function () {
+          this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+          this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      */
+      (function() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = '//selltheheartrecords.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+  <div id="footer"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="../js/main.js" type="text/javascript" charset="utf-8" async defer></script>
+</body>
+</html>

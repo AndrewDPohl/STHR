@@ -1,0 +1,336 @@
+a {
+  text-decoration: none !important; }
+  a:focus {
+    outline: none; }
+
+body {
+  background-color: #000 !important;
+  font-family: 'Poppins', sans-serif; }
+
+.main-body-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100; }
+
+.home-page-top h1 {
+  border: 5px solid #000;
+  text-align: center;
+  font-size: 50px; }
+
+.home-page-body {
+  height: 650px;
+  width: 100%;
+  background-image: url("https://i.imgur.com/tSl0KTG.jpg");
+  background-size: 900px;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+  transition: 1s opacity; }
+
+.modal-body img {
+  width: 100%; }
+
+.modal-header {
+  border: none !important; }
+
+body.modal-open {
+  overflow: hidden; }
+
+@media (min-aspect-ratio: 16 / 9) {
+  .home-page-video {
+    width: 100%;
+    height: auto; } }
+
+@media (max-aspect-ratio: 16 / 9) {
+  .home-page-video {
+    width: auto;
+    height: 100%; } }
+
+@media (max-width: 767px) {
+  .main-body-container {
+    background-color: #000; }
+  .home-page-video {
+    display: none; } }
+
+.sth-logo {
+  text-align: center; }
+
+.enter-here {
+  border: solid 2px #fff;
+  width: 100px;
+  margin: 0 auto; }
+
+.song-tag {
+  margin-top: 25px; }
+
+.home-icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  height: 125px;
+  width: 125px; }
+
+@media (max-height: 375px) {
+  .home-icon {
+    margin-top: 29px; } }
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.fade-in {
+  opacity: 0;
+  /* make things invisible upon start */
+  -webkit-animation: fadeIn ease-in 1;
+  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 2.0s;
+  -moz-animation-delay: 2.0s;
+  animation-delay: 2.0s; }
+
+fade-in.2 {
+  -webkit-animation-delay: 5.5s;
+  -moz-animation-delay: 5.5s;
+  animation-delay: 5.5s; }
+
+.artist-container {
+  margin: 50px 10px; }
+  .artist-container .band-release {
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-position: center; }
+  @media (max-width: 650px) {
+    .artist-container .band-release {
+      height: 300px; } }
+  .artist-container .band-bio-box {
+    border: 2px solid #000;
+    margin-top: 20px; }
+  .artist-container .bandcamp {
+    text-align: center;
+    margin-bottom: 50px; }
+    .artist-container .bandcamp iframe {
+      margin-top: 20px; }
+  .artist-container .artist-header {
+    color: #000;
+    margin-top: 50px;
+    height: 500px;
+    width: 100%; }
+    .artist-container .artist-header h1 {
+      text-align: center; }
+  .artist-container .pics-media {
+    margin-top: 100px;
+    text-align: center; }
+    .artist-container .pics-media img {
+      height: 280px;
+      width: 280px;
+      margin: 20px 10px;
+      transition: all .2s ease-in-out; }
+      .artist-container .pics-media img:hover {
+        box-shadow: 0 0 1em #fff;
+        transform: scale(1.1); }
+
+iframe, .band-bio-box {
+  box-shadow: 0 0 1em white; }
+
+#atlas {
+  background-image: url("https://i.imgur.com/cztrzkn.jpg"); }
+
+#snipers {
+  background-image: url("https://i.imgur.com/JKXnIse.jpg"); }
+
+#goodriddler {
+  background-image: url("https://i.imgur.com/zBpTAQi.jpg"); }
+
+#bua {
+  background-image: url("https://i.imgur.com/MfUQ2Sy.jpg"); }
+
+#eao {
+  background-image: url("https://i.imgur.com/ECv2JaD.jpg"); }
+
+#maere {
+  background-image: url("https://i.imgur.com/eDWFzNx.jpg"); }
+
+#otf {
+  background-image: url("https://i.imgur.com/i91aGZr.jpg"); }
+
+#starskate {
+  background-image: url("https://i.imgur.com/wU2KfNM.jpg"); }
+
+#hanalei {
+  background-image: url("https://i.imgur.com/xQCPwyo.jpg");
+  background-size: contain; }
+  #hanalei:hover {
+    background-image: url("https://i.imgur.com/tSl0KTG.jpg"); }
+
+@media (max-width: 600px) {
+  .home-page-body {
+    background-size: 450px; }
+  .artist-container {
+    background-size: 450px; } }
+
+.main-news-container, .main-media-container, .links-container, .disqus-container, .stores-container {
+  margin-top: 50px;
+  color: #fff; }
+
+.navbar-brand-small {
+  display: none;
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+  color: #d5d5d5; }
+
+@media (max-width: 914px) {
+  .navbar-brand-small {
+    display: block; }
+  .navbar-brand {
+    display: none; } }
+
+.videos {
+  text-align: center; }
+
+.video {
+  margin-top: 15px;
+  height: 400px;
+  width: 100%; }
+
+.link {
+  height: 300px;
+  list-style: none;
+  text-align: center;
+  margin: 0 0 15px 0;
+  transition: all .2s ease-in-out; }
+  .link img {
+    margin-top: 10px;
+    height: 280px;
+    width: 280px; }
+  .link:hover {
+    transform: scale(1.1); }
+
+.all-links, .all-albums, .all-stores {
+  margin-left: -40px; }
+
+.album, .store {
+  display: inline-block;
+  margin: 20px 20px;
+  max-width: 360px;
+  font-size: 14px;
+  transition: all .2s ease-in-out; }
+  .album img, .store img {
+    height: 250px;
+    width: 250px; }
+  .album:hover, .store:hover {
+    transform: scale(1.1); }
+
+.links-title, .news-container, .albums-title, .disqus-title, .tour-dates-title {
+  text-align: center; }
+
+@media (max-width: 320px) {
+  iframe, .band-bio-box {
+    width: 300px !important; }
+  .video {
+    width: 290px !important; }
+  .bandcamp {
+    padding-right: 0 !important;
+    padding-left: 0 !important; } }
+
+#disqus_thread, .tour-dates {
+  padding: 20px 20px; }
+
+.tour-dates, .band-bio, .sth-text, .enter-here, .song-tag {
+  color: #fff; }
+
+/* Add a dark background color with a little bit see-through */
+.navbar {
+  margin-bottom: 0;
+  background-color: gray !important;
+  border: 0;
+  font-size: 11px !important;
+  letter-spacing: 4px;
+  opacity: 0.9; }
+
+/* Add a gray color to all navbar links */
+.navbar li a, .navbar .navbar-brand {
+  color: #d5d5d5 !important; }
+
+/* On hover, the links will turn white */
+.navbar-nav li a:hover {
+  color: #fff !important; }
+
+/* The active link */
+.navbar-nav li.active a {
+  color: #fff !important;
+  background-color: #29292c !important; }
+
+/* Remove border color from the collapsible button */
+.navbar-default .navbar-toggle {
+  border-color: transparent; }
+
+/* Dropdown */
+.open .dropdown-toggle {
+  color: #fff;
+  background-color: #555 !important; }
+
+/* Dropdown links */
+.dropdown-menu li a {
+  color: #000 !important; }
+
+/* On hover, the dropdown links will turn red */
+.dropdown-menu li a:hover {
+  background-color: red !important; }
+
+/* Add a dark background color to the footer */
+footer {
+  background-color: #2d2d30;
+  color: #f5f5f5;
+  padding: 32px; }
+
+footer a {
+  color: #f5f5f5; }
+
+footer a:hover {
+  color: #777;
+  text-decoration: none; }
