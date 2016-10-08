@@ -284,6 +284,11 @@ iframe, .band-bio-box {
 .tour-dates, .band-bio, .sth-text, .enter-here, .song-tag {
   color: #fff; }
 
+.news {
+  font-size: 1.2em;
+  max-width: 1000px;
+  margin: 0 auto; }
+
 /* Add a dark background color with a little bit see-through */
 .navbar {
   margin-bottom: 0;
