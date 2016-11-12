@@ -380,3 +380,11 @@ iframe, .band-bio-box {
     max-width: 1000px;
     margin: 0 auto;
 }
+
+.tracks {
+    list-style: none;
+
+    .album-title {
+        font-style: italic;
+    }
+}
