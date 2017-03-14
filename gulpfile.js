@@ -30,9 +30,9 @@ gulp.task('audio', function() {
         .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('artists', function() {
-    return gulp.src('./app/artists/*.html')
-        .pipe(gulp.dest('./artists'))
+gulp.task('releases', function() {
+    return gulp.src('./app/releases/*.html')
+        .pipe(gulp.dest('./releases'))
         .pipe(browserSync.reload({stream: true}));
 });
 
@@ -60,4 +60,4 @@ gulp.task('serve', function () {
     gulp.watch('./**/*.html').on('change', browserSync.reload);
 });
 
-gulp.task('default', ['styles', 'style', 'js', 'audio', 'videos', 'artists', 'home', 'serve']);
+gulp.task('default', ['styles', 'style', 'js', 'audio', 'videos', 'releases', 'home', 'serve']);

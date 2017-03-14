@@ -172,6 +172,10 @@ fade-in.2 {
         box-shadow: 0 0 1em #fff;
         transform: scale(1.1); }
 
+.news {
+  font-size: 1.2em;
+  max-width: 1000px; }
+
 iframe, .band-bio-box {
   box-shadow: 0 0 1em white; }
 
@@ -198,6 +202,9 @@ iframe, .band-bio-box {
 
 #starskate {
   background-image: url("https://i.imgur.com/wU2KfNM.jpg"); }
+
+#fugazi {
+  background-image: url("http://i.imgur.com/mvoQWnd.png"); }
 
 #hanalei {
   background-image: url("https://i.imgur.com/xQCPwyo.jpg");
@@ -283,11 +290,6 @@ iframe, .band-bio-box {
 
 .tour-dates, .band-bio, .sth-text, .enter-here, .song-tag {
   color: #fff; }
-
-.news {
-  font-size: 1.2em;
-  max-width: 1000px;
-  margin: 0 auto; }
 
 .tracks {
   list-style: none; }
