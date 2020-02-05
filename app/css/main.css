@@ -68,7 +68,8 @@ body.modal-open {
     display: none; } }
 
 .sth-logo {
-  text-align: center; }
+  text-align: center;
+  cursor: pointer; }
 
 .enter-here {
   border: solid 3px #fff;
@@ -174,10 +175,17 @@ fade-in.2 {
 
 .news {
   font-size: 1.2em;
-  max-width: 1000px; }
+  max-width: 1000px;
+  margin-bottom: 10px; }
 
 iframe, .band-bio-box {
   box-shadow: 0 0 1em white; }
+
+#maq {
+  background-image: url("https://i.imgur.com/7XFrh8C.jpg"); }
+
+#unconditional {
+  background-image: url("https://i.imgur.com/7bI7neP.jpg"); }
 
 #atlas {
   background-image: url("https://i.imgur.com/cztrzkn.jpg"); }

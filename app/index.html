@@ -8,9 +8,14 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <script>
+	window.onload = function() {
+	  var context = new AudioContext();
+	}
+  </script>
 </head>
 	<body>
-		<div class="main-body-container">
+		<div class="main-body-container" style="cursor: pointer">
 
 			<video muted class="home-page-video" autoplay="autoplay" poster="videos/eh5v.files/html5video/RecordBackgroundFinal.jpg" title="RecordBackgroundFinal" loop="loop" onended="var v=this;setTimeout(function(){v.play()},300)">
 				<source src="videos/eh5v.files/html5video/RecordBackgroundFinal.m4v" type="video/mp4" />
@@ -23,7 +28,7 @@
 					<h1 class="sth-text">SELL THE HEART RECORDS</h1>
 					<h2 class="enter-here fade-in 2">ENTER</h2>
 				</a>
-				<!-- <p class="song-tag fade-in 3">Song: "Spectre" by SNIPERS!!</p> -->
+				<p class="song-tag fade-in 3">Song: "Spectre" by SNIPERS!!</p>
 			</div>
 
 			<audio autoplay>
