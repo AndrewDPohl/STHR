@@ -230,6 +230,9 @@ iframe, .band-bio-box {
   margin-top: 50px;
   color: #fff; }
 
+.songkick-container {
+  padding: 0 10px; }
+
 .navbar-brand-small {
   display: none;
   float: left;
