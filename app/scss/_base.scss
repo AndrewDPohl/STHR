@@ -4,10 +4,14 @@ a {
     &:focus {
         outline: none;
     }
+
+    &:hover {
+        color: white;
+    }
 }
 
 body {
-    background-color: #000 !important;
+    background-color: #2F4F4F !important;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -223,6 +227,10 @@ fade-in.2 {
 
 iframe, .band-bio-box {
     box-shadow: 0 0 1em white;
+}
+
+#tulpaluna {
+  background-image: url("https://i.imgur.com/G5ToNZb.png");
 }
 
 #maq {

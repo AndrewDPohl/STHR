@@ -2,9 +2,11 @@ a {
   text-decoration: none !important; }
   a:focus {
     outline: none; }
+  a:hover {
+    color: white; }
 
 body {
-  background-color: #000 !important;
+  background-color: #2F4F4F !important;
   font-family: 'Poppins', sans-serif; }
 
 .main-body-container {
@@ -180,6 +182,9 @@ fade-in.2 {
 
 iframe, .band-bio-box {
   box-shadow: 0 0 1em white; }
+
+#tulpaluna {
+  background-image: url("https://i.imgur.com/G5ToNZb.png"); }
 
 #maq {
   background-image: url("https://i.imgur.com/7XFrh8C.jpg"); }
