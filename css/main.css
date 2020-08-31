@@ -180,8 +180,14 @@ fade-in.2 {
   max-width: 1000px;
   margin-bottom: 10px; }
 
+.new-headline {
+  text-align: center; }
+
 iframe, .band-bio-box {
   box-shadow: 0 0 1em white; }
+
+#decentcriminal {
+  background-image: url("https://i.imgur.com/JDazsqJ.jpg"); }
 
 #tulpaluna {
   background-image: url("https://i.imgur.com/G5ToNZb.png"); }
