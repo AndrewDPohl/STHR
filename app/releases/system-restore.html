@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>STHR | SYSTEM RESTORE</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+</head>
+<body>
+  <div class="artist-header"></div>
+  
+  <div class="artist-container">
+
+      <div class="band-bio-box col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="band-release" id="systemrestore"></div>
+        <a href="https://selltheheartrecords.bandcamp.com/merch/system-restore-user-friendly-fire-7-inch-ep" target="_blank">Order at Bandcamp Here!</a>
+        <p class="band-bio">
+          From the central mountain city of Casper, Wyoming comes System Restore, a four-piece skate punk outfit that have been turning out their brand of melodic punk for the last few years. Their latest effort is the 4-song barn burner User Friendly Fire, which picks up right where their previous effort, Suburban Drones, left off.
+
+          The first single, "Wash Your Hands", is a timely tale of a person dealing with their OCD and obsessive hand-washing. Coming in just shy of the 2 minute mark, the song rips through it's catchy-as-hell chorus call-to-arms to "Wash, Wash Your Haaaands!"
+
+          This 7-inch is available for pre-order now in two variants: Clear with Red Splatter or Solid White. For fans of the likes of Lagwagon, Bad Religion, Descendents, etc
+        </p>
+      </div>
+
+      <!-- <div class="bandcamp col-lg-4 col-md-4 col-sm-12 col-xs-12">
+       <iframe style="border: 0; width: 350px; height: 786px;" src="https://bandcamp.com/EmbeddedPlayer/album=205113593/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="http://unconditionalarms.bandcamp.com/album/formation">Formation by Unconditional Arms</a></iframe>
+      </div> -->
+
+      <div class="pics-media">
+        <a href="#" id="pop">
+          <img class="band-pics" id="band-pic" src="https://i.imgur.com/8KtK7Fa.jpg" alt="System Restore 7-inch Album Cover">
+        </a>
+        <a href="#" id="pop">
+          <img class="band-pics" id="band-pic" src="https://i.imgur.com/W1RDI6T.jpg" alt="System Restore - Group Shot">
+        </a>
+        <a href="#" id="pop">
+          <img class="band-pics" id="band-pic" src="https://i.imgur.com/uoBOXgT.png" alt="System Restore - Live Shot">
+        </a>
+      </div>
+
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        </div>
+        <div class="modal-body">
+          <img src="" id="imagepreview">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="songkick-container">
+  	<a href="https://www.songkick.com/artists/7604114" class="songkick-widget" data-theme="light" data-track-button="on" data-detect-style="true" data-background-color="white" data-locale="en">Unconditional Arms tour dates</a>
+	<script src="//widget.songkick.com/7604114/widget.js"></script>
+  </div> -->
+
+  <div class="disqus-container">
+      <h3 class="disqus-title">Tell Us What You Think Of This Release!</h3>
+      <div id="disqus_thread"></div>
+        <script>
+
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+        /*
+        var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//selltheheartrecords.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+  <div id="footer"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="../js/main.js" type="text/javascript" charset="utf-8" async defer></script>
+  <script>
+     $("#header").load("../_header.html");
+  </script>
+</body>
+</html>
