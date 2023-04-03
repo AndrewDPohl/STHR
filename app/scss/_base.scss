@@ -407,11 +407,16 @@ iframe, .band-bio-box {
     margin-left: -40px;
 }
 
+.album {
+    background-color: #8db14e;
+    box-shadow: 5px 5px 5px black;
+}
+
 .album, .store {
     display: inline-block;
     margin: 20px 20px;
     max-width: 360px;
-    font-size: 14px;
+    font-size: 12px;
     img {
         height: 250px;
         width: 250px;
@@ -421,6 +426,8 @@ iframe, .band-bio-box {
 
     &:hover {
         transform: scale(1.1); 
+        background-color: #000;
+        box-shadow: 5px 5px 5px gold;
     }
 }
 
