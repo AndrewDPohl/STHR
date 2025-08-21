@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 var rename = require("gulp-rename");
 var cdnizer = require("gulp-cdnizer");
 var browserSync = require('browser-sync').create();
@@ -55,9 +55,9 @@ gulp.task('serve', function () {
         }
     });
 
-    gulp.watch('./app/main.js', ['js']);
-    gulp.watch('./app/scss/*.scss', ['styles']);
+    gulp.watch('./app/main.js', gulp.series('js'));
+    gulp.watch('./app/scss/*.scss', gulp.series('styles'));
     gulp.watch('./**/*.html').on('change', browserSync.reload);
 });
 
-gulp.task('default', ['styles', 'style', 'js', 'audio', 'videos', 'artists', 'home', 'serve']);
+gulp.task('default', gulp.series('styles', 'style', 'js', 'audio', 'videos', 'artists', 'home', 'serve'));
