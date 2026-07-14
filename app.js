@@ -206,7 +206,8 @@ function filterPress(band, btn) {
   });
 }
 
-async function handleSubmit() {
+async function handleSubmit(event) {
+  event.preventDefault();
   const name = document.getElementById('contact-name').value.trim();
   const email = document.getElementById('contact-email').value.trim();
   const topic = document.getElementById('contact-topic').value;
@@ -214,7 +215,7 @@ async function handleSubmit() {
   const btn = document.getElementById('contact-submit');
   const successEl = document.getElementById('formSuccess');
   const errorEl = document.getElementById('formError');
-
+ 
   // Basic validation
   if (!name || !email || !message) {
     errorEl.textContent = '✕ \u00a0Please fill in your name, email, and message.';
@@ -222,21 +223,21 @@ async function handleSubmit() {
     successEl.style.display = 'none';
     return;
   }
-
+ 
   // Disable button while sending
   btn.textContent = 'Sending...';
   btn.style.opacity = '0.6';
   btn.style.pointerEvents = 'none';
   errorEl.style.display = 'none';
   successEl.style.display = 'none';
-
+ 
   try {
     const res = await fetch('https://formspree.io/f/xlgkokpy', {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, topic, message })
     });
-
+ 
     if (res.ok) {
       successEl.style.display = 'block';
       // Clear form
@@ -258,7 +259,6 @@ async function handleSubmit() {
     btn.style.pointerEvents = 'auto';
   }
 }
-
 // ---- DYNAMIC PRESS FROM SUPABASE ----
 function bandNameToKey(band) {
   return band.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
