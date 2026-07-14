@@ -85,7 +85,7 @@ let dynamicAlbums = []; // albums loaded from Supabase
 
 // ---- SUPABASE CONFIG ----
 const SUPABASE_URL = 'https://xuhmmszgyiuvxfaxegee.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh1aG1tc3pneWl1dnhmYXhlZ2VlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2MzA3MTYsImV4cCI6MjA5NjIwNjcxNn0._BQmTEtxB8WXOOddQlKFW7S0';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh1aG1tc3pneWl1dnhmYXhlZ2VlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2MzA3MTYsImV4cCI6MjA5NjIwNjcxNn0._BQmTEtxN6PoWgU8e5kPaDXvvipB8WXOOddQlKFW7S0';
 
 async function supabaseFetch(table, params = '') {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params}`, {
