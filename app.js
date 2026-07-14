@@ -207,7 +207,7 @@ function filterPress(band, btn) {
 }
 
 async function handleSubmit(event) {
-  event.preventDefault();
+  if (event) event.preventDefault();
   const name = document.getElementById('contact-name').value.trim();
   const email = document.getElementById('contact-email').value.trim();
   const topic = document.getElementById('contact-topic').value;
