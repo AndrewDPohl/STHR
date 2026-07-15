@@ -27,14 +27,16 @@ const defaultFeatured = {
 };
  
 function renderFeatured(album) {
-  document.getElementById('featured-img').src = album.img || album.image_url;
+  if (!album || !album.artist) return;
+  document.getElementById('featured-img').src = album.img || album.image_url || '';
   document.getElementById('featured-img').alt = album.title;
   document.getElementById('featured-artist').textContent = album.artist;
   document.getElementById('featured-album').textContent = album.title;
   const year = album.year ? ` · ${album.year}` : '';
   document.getElementById('featured-formats').innerHTML = (album.format || '') + year;
-  document.getElementById('featured-link').href = album.url || album.store_url;
+  document.getElementById('featured-link').href = album.url || album.store_url || '#';
   document.getElementById('featured-badge').textContent = 'New Release';
+  document.getElementById('featured-release').style.display = 'grid';
 }
  
 function normaliseAlbum(a) {
@@ -88,9 +90,8 @@ async function loadDynamicAlbums() {
       renderFeatured(defaultFeatured);
     }
   } catch(e) {
-    console.warn('Could not load albums from Supabase, using defaults.', e);
+    console.warn('Could not load albums from Supabase.', e);
     dynamicAlbums = [];
-    renderFeatured(defaultFeatured);
   }
   buildCatalog(activeFilter);
 }
