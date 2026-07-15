@@ -253,13 +253,6 @@ async function loadDynamicPress() {
     console.warn('Could not load press from Supabase.', e);
   }
 }
- 
-// Init — load from Supabase then render
-loadDynamicAlbums();
-loadDynamicPress();
-loadVideos();
-loadStores();
-showPage('home');
 
 // ---- VIDEOS FROM SUPABASE ----
 async function loadVideos() {
@@ -305,3 +298,10 @@ async function loadStores() {
     console.warn('Could not load stores from Supabase.', e);
   }
 }
+ 
+// Init — load from Supabase then render
+loadDynamicAlbums();
+loadDynamicPress();
+loadVideos();
+loadStores();
+showPage('home');
