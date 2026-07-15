@@ -257,4 +257,51 @@ async function loadDynamicPress() {
 // Init — load from Supabase then render
 loadDynamicAlbums();
 loadDynamicPress();
+loadVideos();
+loadStores();
 showPage('home');
+
+// ---- VIDEOS FROM SUPABASE ----
+async function loadVideos() {
+  try {
+    const rows = await supabaseFetch('videos', 'order=year.desc');
+    if (!rows || rows.length === 0) return;
+    const grid = document.getElementById('videosGrid');
+    if (!grid) return;
+    grid.innerHTML = rows.map(v => `
+      <div class="video-item">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/${v.youtube_id}"
+            title="${v.artist} - ${v.title}"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+          <div class="video-artist">${v.artist}</div>
+          <div class="video-title">${v.title}</div>
+          <div class="video-song">${v.song || ''}</div>
+        </div>
+      </div>
+    `).join('');
+  } catch(e) {
+    console.warn('Could not load videos from Supabase.', e);
+  }
+}
+
+// ---- STORES FROM SUPABASE ----
+async function loadStores() {
+  try {
+    const rows = await supabaseFetch('stores', 'order=name.asc');
+    if (!rows || rows.length === 0) return;
+    const grid = document.getElementById('storesGrid');
+    if (!grid) return;
+    grid.innerHTML = rows.map(s => `
+      <a class="store-item" href="${s.url}" target="_blank">
+        <img src="${s.image_url}" alt="${s.name}">
+        <div class="store-name">${s.name}</div>
+        <div class="store-location">${s.location}</div>
+      </a>
+    `).join('');
+  } catch(e) {
+    console.warn('Could not load stores from Supabase.', e);
+  }
+}
