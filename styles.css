@@ -236,7 +236,7 @@
   /* ---- NEWS PAGE ---- */
   .featured-release {
     margin: 0 2.5rem 3rem;
-    display: grid;
+    display: none;
     grid-template-columns: 280px 1fr;
     gap: 0;
     border: 1px solid var(--border);
@@ -1019,6 +1019,3 @@
  
     .about-stat-num { font-size: 2.5rem; }
   }
- 
- 
-1Password menu is available. Press down arrow to select.
