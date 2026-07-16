@@ -27,7 +27,7 @@ const defaultFeatured = {
 };
  
 function renderFeatured(album) {
-  if (!album || !album.artist) return;
+  if (!album || !album.artist) return; // nothing to show
   document.getElementById('featured-img').src = album.img || album.image_url || '';
   document.getElementById('featured-img').alt = album.title;
   document.getElementById('featured-artist').textContent = album.artist;
@@ -36,6 +36,7 @@ function renderFeatured(album) {
   document.getElementById('featured-formats').innerHTML = (album.format || '') + year;
   document.getElementById('featured-link').href = album.url || album.store_url || '#';
   document.getElementById('featured-badge').textContent = 'New Release';
+  // Show the block now that it's populated
   document.getElementById('featured-release').style.display = 'grid';
 }
  
@@ -253,7 +254,14 @@ async function loadDynamicPress() {
     console.warn('Could not load press from Supabase.', e);
   }
 }
-
+ 
+// Init — load from Supabase then render
+loadDynamicAlbums();
+loadDynamicPress();
+loadVideos();
+loadStores();
+showPage('home');
+ 
 // ---- VIDEOS FROM SUPABASE ----
 async function loadVideos() {
   try {
@@ -279,7 +287,7 @@ async function loadVideos() {
     console.warn('Could not load videos from Supabase.', e);
   }
 }
-
+ 
 // ---- STORES FROM SUPABASE ----
 async function loadStores() {
   try {
@@ -298,10 +306,3 @@ async function loadStores() {
     console.warn('Could not load stores from Supabase.', e);
   }
 }
- 
-// Init — load from Supabase then render
-loadDynamicAlbums();
-loadDynamicPress();
-loadVideos();
-loadStores();
-showPage('home');
