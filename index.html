@@ -13,7 +13,10 @@
 <!-- NAV -->
 <nav>
   <a class="nav-logo" onclick="showPage('home')">Sell The <span>Heart</span> Records</a>
-  <ul class="nav-links">
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleNav()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
     <li><a onclick="showPage('news')" id="nav-news">Catalog</a></li>
     <li><a onclick="showPage('press')" id="nav-press">Press</a></li>
     <li><a onclick="showPage('videos')" id="nav-videos">Videos</a></li>
