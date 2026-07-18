@@ -96,6 +96,13 @@ async function loadDynamicAlbums() {
   }
   buildCatalog(activeFilter);
 }
+
+function toggleNav() {
+  const links = document.getElementById('navLinks');
+  const burger = document.getElementById('navHamburger');
+  links.classList.toggle('open');
+  burger.classList.toggle('open');
+}
  
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => {
@@ -111,6 +118,8 @@ function showPage(id) {
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
   const navEl = document.getElementById('nav-' + id);
   if (navEl) navEl.classList.add('active');
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('navHamburger').classList.remove('open'); 
 }
  
 function filterPress(band, btn) {
