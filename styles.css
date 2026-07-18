@@ -1063,9 +1063,9 @@ nav {
       grid-template-columns: 1fr;
     }
  
-    .catalog-grid {
+   .catalog-grid {
       grid-template-columns: repeat(2, 1fr);
-    }
+   }
  
     .stores-grid {
       grid-template-columns: repeat(2, 1fr);
