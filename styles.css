@@ -1,4 +1,4 @@
-  :root {
+:root {
     --black: #0a0a0a;
     --off-black: #111110;
     --card-bg: #1a1008;
@@ -970,7 +970,7 @@
  
     /* GENERAL */
     .catalog-grid {
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
     }
  
     footer {
