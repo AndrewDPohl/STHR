@@ -659,10 +659,7 @@
 
   /* ---- VIDEOS PAGE ---- */
   .videos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1px;
-    background: var(--border);
+    display: block;
     padding: 0 2.5rem;
     margin-bottom: 4rem;
   }
@@ -1048,8 +1045,11 @@
 
     /* VIDEOS */
     .videos-grid {
-      grid-template-columns: 1fr;
       padding: 0 1rem;
+    }
+
+    .videos-year-grid {
+      grid-template-columns: 1fr;
     }
 
     /* GENERAL */
