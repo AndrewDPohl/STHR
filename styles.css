@@ -345,10 +345,7 @@
   .filter-btn.active { background: var(--red); border-color: var(--red); color: var(--white); }
 
   .catalog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 1px;
-    background: var(--border);
+    display: block;
     margin-bottom: 4rem;
   }
 
@@ -1056,7 +1053,7 @@
     }
 
     /* GENERAL */
-    .catalog-grid {
+    .catalog-year-grid {
       grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1096,7 +1093,7 @@
       grid-template-columns: 1fr;
     }
 
-    .catalog-grid {
+    .catalog-year-grid {
       grid-template-columns: repeat(2, 1fr);
     }
 
