@@ -178,10 +178,16 @@ async function handleSubmit(event) {
   successEl.style.display = 'none';
 
   try {
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('topic', topic);
+    formData.append('message', message);
+
     const res = await fetch('https://formspree.io/f/xlgkokpy', {
       method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, topic, message })
+      headers: { 'Accept': 'application/json' },
+      body: formData
     });
 
     if (res.ok) {
