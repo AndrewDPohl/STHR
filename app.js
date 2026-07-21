@@ -1,10 +1,10 @@
 let activeFilter = 'all';
 let dynamicAlbums = [];
- 
+
 // ---- SUPABASE CONFIG ----
 const SUPABASE_URL = 'https://xuhmmszgyiuvxfaxegee.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh1aG1tc3pneWl1dnhmYXhlZ2VlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2MzA3MTYsImV4cCI6MjA5NjIwNjcxNn0._BQmTEtxN6PoWgU8e5kPaDXvvipB8WXOOddQlKFW7S0';
- 
+
 async function supabaseFetch(table, params = '') {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params}`, {
     headers: {
@@ -15,7 +15,7 @@ async function supabaseFetch(table, params = '') {
   if (!res.ok) throw new Error(`Supabase error: ${res.status}`);
   return res.json();
 }
- 
+
 // Default featured (fallback if Supabase is unreachable)
 const defaultFeatured = {
   img: '',
@@ -25,7 +25,7 @@ const defaultFeatured = {
   year: '',
   url: 'https://selltheheartrecords.bigcartel.com'
 };
- 
+
 function renderFeatured(album) {
   if (!album || !album.artist) return; // nothing to show
   document.getElementById('featured-img').src = album.img || album.image_url || '';
@@ -39,7 +39,7 @@ function renderFeatured(album) {
   // Show the block now that it's populated
   document.getElementById('featured-release').style.display = 'grid';
 }
- 
+
 function normaliseAlbum(a) {
   // Normalise Supabase row to match catalog object shape
   return {
@@ -53,36 +53,53 @@ function normaliseAlbum(a) {
     featured: a.featured,
   };
 }
- 
+
 function buildCatalog(filter) {
   const allAlbums = [...dynamicAlbums];
   const grid = document.getElementById('catalogGrid');
   const items = filter === 'all' ? allAlbums : allAlbums.filter(r => r.type && r.type.includes(filter));
-  grid.innerHTML = items.map(r => `
-    <a class="catalog-item" href="${r.url || r.store_url || '#'}" target="_blank">
-      <img src="${r.img || r.image_url}" alt="${r.title}" loading="lazy">
-      <div class="catalog-item-info">
-        <div class="catalog-item-artist">${r.artist}</div>
-        <div class="catalog-item-title">${r.title}</div>
-        <div class="catalog-item-format">${r.format}${r.year ? ' · ' + r.year : ''}</div>
+
+  // Group by year descending
+  const byYear = {};
+  items.forEach(r => {
+    const y = r.year || 'Unknown';
+    if (!byYear[y]) byYear[y] = [];
+    byYear[y].push(r);
+  });
+  const years = Object.keys(byYear).sort((a, b) => b - a);
+
+  grid.innerHTML = years.map(year => `
+    <div class="catalog-year-block">
+      <div class="catalog-year-header">${year}</div>
+      <div class="catalog-year-grid">
+        ${byYear[year].map(r => `
+          <a class="catalog-item" href="${r.url || r.store_url || '#'}" target="_blank">
+            <img src="${r.img || r.image_url}" alt="${r.title}" loading="lazy">
+            <div class="catalog-item-info">
+              <div class="catalog-item-artist">${r.artist}</div>
+              <div class="catalog-item-title">${r.title}</div>
+              <div class="catalog-item-format">${r.format}</div>
+            </div>
+          </a>
+        `).join('')}
       </div>
-    </a>
+    </div>
   `).join('');
 }
- 
+
 function filterCatalog(type, btn) {
   activeFilter = type;
   document.querySelectorAll('.catalog-filters .filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   buildCatalog(type);
 }
- 
+
 async function loadDynamicAlbums() {
   try {
     // Fetch all albums ordered by created_at descending (newest first)
     const rows = await supabaseFetch('albums', 'order=created_at.desc');
     dynamicAlbums = rows.map(normaliseAlbum);
- 
+
     if (dynamicAlbums.length > 0) {
       // Featured = row with featured=true, else most recently added
       const featured = dynamicAlbums.find(a => a.featured) || dynamicAlbums[0];
@@ -103,7 +120,7 @@ function toggleNav() {
   links.classList.toggle('open');
   burger.classList.toggle('open');
 }
- 
+
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => {
     p.classList.remove('active');
@@ -118,10 +135,11 @@ function showPage(id) {
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
   const navEl = document.getElementById('nav-' + id);
   if (navEl) navEl.classList.add('active');
+  // Close mobile menu on navigation
   document.getElementById('navLinks').classList.remove('open');
-  document.getElementById('navHamburger').classList.remove('open'); 
+  document.getElementById('navHamburger').classList.remove('open');
 }
- 
+
 function filterPress(band, btn) {
   document.querySelectorAll('#pressFilters .filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
@@ -133,7 +151,7 @@ function filterPress(band, btn) {
     }
   });
 }
- 
+
 async function handleSubmit(event) {
   if (event) event.preventDefault();
   const name = document.getElementById('contact-name').value.trim();
@@ -143,7 +161,7 @@ async function handleSubmit(event) {
   const btn = document.getElementById('contact-submit');
   const successEl = document.getElementById('formSuccess');
   const errorEl = document.getElementById('formError');
- 
+
   // Basic validation
   if (!name || !email || !message) {
     errorEl.textContent = '✕ \u00a0Please fill in your name, email, and message.';
@@ -151,21 +169,21 @@ async function handleSubmit(event) {
     successEl.style.display = 'none';
     return;
   }
- 
+
   // Disable button while sending
   btn.textContent = 'Sending...';
   btn.style.opacity = '0.6';
   btn.style.pointerEvents = 'none';
   errorEl.style.display = 'none';
   successEl.style.display = 'none';
- 
+
   try {
     const res = await fetch('https://formspree.io/f/xlgkokpy', {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email, topic, message })
     });
- 
+
     if (res.ok) {
       successEl.style.display = 'block';
       // Clear form
@@ -187,17 +205,17 @@ async function handleSubmit(event) {
     btn.style.pointerEvents = 'auto';
   }
 }
- 
+
 // ---- DYNAMIC PRESS FROM SUPABASE ----
 function bandNameToKey(band) {
   return band.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
- 
+
 async function loadDynamicPress() {
   try {
     const rows = await supabaseFetch('press', 'order=created_at.asc');
     if (!rows || rows.length === 0) return;
- 
+
     // Group by band
     const grouped = {};
     rows.forEach(p => {
@@ -205,10 +223,10 @@ async function loadDynamicPress() {
       if (!grouped[key]) grouped[key] = { band: p.band, items: [] };
       grouped[key].items.push(p);
     });
- 
+
     const pressBands = document.getElementById('pressBands');
     const pressFilters = document.getElementById('pressFilters');
- 
+
     for (const [key, group] of Object.entries(grouped)) {
       // Add filter button if not already there
       if (!document.querySelector(`#pressFilters .filter-btn[data-band="${key}"]`)) {
@@ -219,10 +237,10 @@ async function loadDynamicPress() {
         btn.setAttribute('onclick', `filterPress('${key}', this)`);
         pressFilters.appendChild(btn);
       }
- 
+
       // All press now comes from Supabase — create band block if it doesn't exist
       let block = document.querySelector(`.press-band-block[data-band="${key}"]`);
- 
+
       if (!block) {
         // Create new band block
         block = document.createElement('div');
@@ -237,7 +255,7 @@ async function loadDynamicPress() {
         `;
         pressBands.appendChild(block);
       }
- 
+
       // Append new press items to the band's press-items div
       const itemsDiv = block.querySelector('.press-items');
       group.items.forEach(p => {
@@ -263,14 +281,14 @@ async function loadDynamicPress() {
     console.warn('Could not load press from Supabase.', e);
   }
 }
- 
+
 // Init — load from Supabase then render
 loadDynamicAlbums();
 loadDynamicPress();
 loadVideos();
 loadStores();
 showPage('home');
- 
+
 // ---- VIDEOS FROM SUPABASE ----
 async function loadVideos() {
   try {
@@ -278,17 +296,34 @@ async function loadVideos() {
     if (!rows || rows.length === 0) return;
     const grid = document.getElementById('videosGrid');
     if (!grid) return;
-    grid.innerHTML = rows.map(v => `
-      <div class="video-item">
-        <div class="video-embed">
-          <iframe src="https://www.youtube.com/embed/${v.youtube_id}"
-            title="${v.artist} - ${v.title}"
-            allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-          <div class="video-artist">${v.artist}</div>
-          <div class="video-title">${v.title}</div>
-          <div class="video-song">${v.song || ''}</div>
+
+    // Group by year descending
+    const byYear = {};
+    rows.forEach(v => {
+      const y = v.year || 'Unknown';
+      if (!byYear[y]) byYear[y] = [];
+      byYear[y].push(v);
+    });
+    const years = Object.keys(byYear).sort((a, b) => b - a);
+
+    grid.innerHTML = years.map(year => `
+      <div class="videos-year-block">
+        <div class="catalog-year-header">${year}</div>
+        <div class="videos-year-grid">
+          ${byYear[year].map(v => `
+            <div class="video-item">
+              <div class="video-embed">
+                <iframe src="https://www.youtube.com/embed/${v.youtube_id}"
+                  title="${v.artist} - ${v.title}"
+                  allowfullscreen loading="lazy"></iframe>
+              </div>
+              <div class="video-info">
+                <div class="video-artist">${v.artist}</div>
+                <div class="video-title">${v.title}</div>
+                <div class="video-song">${v.song || ''}</div>
+              </div>
+            </div>
+          `).join('')}
         </div>
       </div>
     `).join('');
@@ -296,7 +331,7 @@ async function loadVideos() {
     console.warn('Could not load videos from Supabase.', e);
   }
 }
- 
+
 // ---- STORES FROM SUPABASE ----
 async function loadStores() {
   try {
